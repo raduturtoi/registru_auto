@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using registru_auto.Contexts;
+using registru_auto.Services.Repositories;
+using registru_auto.Services.UnitsOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +31,18 @@ namespace registru_auto
         {
             var connectionString = Configuration["ConnectionStrings:CarsDBConnectionString"];
             services.AddDbContext<CarsContexts>(o => o.UseSqlServer(connectionString));
+
+            // SS: Adding services on the container
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICarRepository, CarRepository>();
+            services.AddScoped<IOwnerRepository, OwnerRepository>();
+
+            services.AddScoped<IUserUnitOfWork, UserUnitOfWork>();
+            services.AddScoped<ICarUnitOfWork, CarUnitOfWork>();
+
+            services.AddControllers();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,10 +57,8 @@ namespace registru_auto
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
+               
             });
         }
     }
