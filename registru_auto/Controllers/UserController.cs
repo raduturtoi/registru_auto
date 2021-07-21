@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using registru_auto.Entities;
 using registru_auto.ExternalModels;
 using registru_auto.Services.UnitsOfWork;
 using System;
 using System.Collections.Generic;
-
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace registru_auto.Controllers
 {
@@ -66,7 +69,7 @@ namespace registru_auto.Controllers
                 _mapper.Map<UserDTO>(userEntity));
         }
 
-        /* [Route("login")]
+        [Route("login")]
         [HttpPost]
         public IActionResult Login([FromBody] LoginDTO user)
         {
@@ -83,8 +86,8 @@ namespace registru_auto.Controllers
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                 var tokeOptions = new JwtSecurityToken(
-                    issuer: "https://localhost:44318",
-                    audience: "https://localhost:44318",
+                    issuer: "https://localhost:44390",
+                    audience: "https://localhost:44390",
                     claims: new List<Claim>(),
                     expires: DateTime.Now.AddHours(8),
                     signingCredentials: signinCredentials
@@ -97,6 +100,6 @@ namespace registru_auto.Controllers
             {
                 return Unauthorized();
             }
-        }*/
+        }
     }
 }

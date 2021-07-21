@@ -1,4 +1,5 @@
-﻿using registru_auto.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using registru_auto.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,11 +41,14 @@ namespace registru_auto.Services.Repositories
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
+
             return _context.Set<TEntity>().Where(predicate).ToList();
         }
 
         public TEntity FindDefault(Expression<Func<TEntity, bool>> predicate)
         {
+            
+
             return _context.Set<TEntity>().Where(predicate).FirstOrDefault();
         }
 

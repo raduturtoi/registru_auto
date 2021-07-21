@@ -63,3 +63,7 @@ B:\Facultate\practica\source\registru_auto\obj\Debug\netcoreapp3.1\registru_auto
 B:\Facultate\practica\source\registru_auto\obj\Debug\netcoreapp3.1\registru_auto.genruntimeconfig.cache
 B:\Facultate\practica\source\registru_auto\bin\Debug\netcoreapp3.1\AutoMapper.dll
 B:\Facultate\practica\source\registru_auto\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+B:\Facultate\practica\source\registru_auto\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+B:\Facultate\practica\source\registru_auto\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+B:\Facultate\practica\source\registru_auto\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+B:\Facultate\practica\source\registru_auto\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
